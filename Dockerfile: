@@ -1,9 +1,8 @@
-FROM python:3.11-slim
+FROM node:18-slim
 WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY package*.json ./
+RUN npm install --only=production
 COPY . .
-EXPOSE 8080
-ENV PORT=8080
-ENV PYTHONUNBUFFERED=1
-CMD ["python", "main.py"]
+EXPOSE 3000
+ENV PORT=3000
+CMD ["node", "index.js"]
