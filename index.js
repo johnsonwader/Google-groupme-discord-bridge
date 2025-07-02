@@ -10,15 +10,6 @@ if (req.method === 'GET' && parsedUrl.pathname === '/health') {
   return;
 }
 
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-EXPOSE 8080
-ENV PORT=8080
-CMD ["node", "index.js"]
-
 // GroupMe-Discord Bridge - Main Application File with Reaction Support and Reply Context
 const https = require('https');
 const http = require('http');
